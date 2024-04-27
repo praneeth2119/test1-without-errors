@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Conscious Product Reviews</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* CSS styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #f0f0f0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        .product-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .product-card img {
+            width: 200px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .product-card img:hover {
+            transform: scale(1.1);
+        }
+
+        .product-card h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+
+        .product-card p {
+            color: #333;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .review-form {
+            display: none;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-form input,
+        .review-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .review-form button {
+            width: auto;
+            margin-top: 10px;
+        }
+
+        .review {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .review h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+
+        .review p {
+            color: #333;
+        }
+
+        .review p.rating {
+            margin-top: 5px;
+            color: #999;
+        }
+
+        .contrast {
+            color: #000;
+            /* Set the text color */
+            background-color: #fff;
+            /* Set the background color */
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Eco-Conscious Product Reviews</h1>
+        <nav>
+            <ul>
+                <li><a href="#" class="contrast"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#" class="contrast"><i class="fas fa-box"></i> Products</a></li>
+                <li><a href="#" class="contrast"><i class="fas fa-info-circle"></i> About</a></li>
+                <li><a href="#" class="contrast"><i class="fas fa-envelope"></i> Contact</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Featured Product</h2>
+            <div class="product-card">
+                <img src="images/EV.jpg" alt="Product Image 1">
+                <img src="images/IMG2.jpg" alt="Product Image 2">
+                <img src="images/IMG3.jpg" alt="Product Image 3">
+                <h3>Product Name</h3>
+                <p>Description of the product...</p>
+                <button onclick="toggleReviewForm()">Write a Review</button>
+                <div class="review-form">
+                    <h3>Write a Review</h3>
+                    <form>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" placeholder="Your Name">
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" placeholder="Your Email">
+
+                        <label for="review">Review:</label>
+                        <textarea id="review" placeholder="Your Review"></textarea>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Customer Reviews</h2>
+            <div id="reviews">
+                <!-- JavaScript will populate reviews here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Eco-Conscious Product Reviews</p>
+    </footer>
+
+    <script>
+        // JavaScript code
+        function toggleReviewForm() {
+            var reviewForm = document.querySelector('.review-form');
+            if (reviewForm.style.display === 'none' || reviewForm.style.display === '') {
+                reviewForm.style.display = 'block';
+            } else {
+                reviewForm.style.display = 'none';
+            }
+        }
+
+        // Placeholder JavaScript code for handling customer reviews
+        // You can replace this with actual functionality
+        function populateReviews() {
+            var reviewsContainer = document.getElementById("reviews");
+            var reviews = [
+                { name: "John Doe", rating: 4, comment: "Great product! Very eco-friendly." },
+                { name: "Jane Smith", rating: 5, comment: "Excellent quality and sustainable materials." },
+                { name: "Alice Johnson", rating: 3, comment: "Good product, but could be more durable." }
+            ];
+
+            reviews.forEach(function (review) {
+                var reviewElement = document.createElement("div");
+                reviewElement.classList.add("review");
+                reviewElement.innerHTML = `
+                    <h3>${review.name}</h3>
+                    <p class="rating">Rating: ${review.rating}</p>
+                    <p>${review.comment}</p>
+                `;
+                reviewsContainer.appendChild(reviewElement);
+            });
+        }
+
+        // Call the function to populate reviews
+        populateReviews();
+    </script>
+</body>
+
+</html>
